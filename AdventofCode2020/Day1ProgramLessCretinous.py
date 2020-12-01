@@ -4,9 +4,8 @@ def get_data(file):
     return data
 
 data = get_data("Day1Input.txt")
-
 data = data[:]
-print(data)
+
 
 def aocday1pt1(exp, sum):
   expenses=exp[:]
@@ -14,18 +13,21 @@ def aocday1pt1(exp, sum):
   for expense in expenses:
       goal = sum - expense
       if goal in expenses:
-          return (expense, key)
+          return (expense, goal)
+  return -1
 
 
-print(aocday1pt1(data))
+print(aocday1pt1(data,2020)[0]*aocday1pt1(data,2020)[1] )
 
-def aocday1pt2(exp):
+def aocday1pt2(exp, sum):
   expenses=exp[:]
-  for i in range(0, len(expenses)):
-    for j in range(i+1,len(expenses)):
-      if (expenses[i]+expenses[j]) < 2020:
-        for k in range(j+1, len(expenses)):
-          if expenses[i]+expenses[j]+expenses[k] ==2020:
-            return expenses[i]*expenses[j]*expenses[k]
 
-#print(aocday1pt2(data))
+  for expense in expenses:
+      remainder = sum - expense
+      pair = aocday1pt1(exp, remainder)
+
+      if pair != -1 and pair [0] != pair[1] and expense not in pair:
+          return (expense, pair[0], pair[1])
+  return -1
+
+print(aocday1pt2(data,2020)[0]*aocday1pt2(data,2020)[1]*aocday1pt2(data,2020)[2])
