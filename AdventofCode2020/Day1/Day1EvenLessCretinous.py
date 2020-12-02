@@ -3,7 +3,7 @@ def get_data(file):
         data = list(map(int,f.read().split("\n")))
     return data
 
-data = get_data("Day1Input.txt")
+data = get_data(C:\Users\samle\OneDrive\Documents\GitHub\AdventofCode\AdventofCode2020\Day1\Day1Input.txt)
 
 print(data)
 
