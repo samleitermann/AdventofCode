@@ -26,17 +26,15 @@ for group in passwords:
   if count >= low and count <= high:
       part_one += 1
 
-    #adjust for indexing
-    low -=1
-    high -=1
+  #adjust for indexing
+  low -=1
+  high -=1
 
-    #check
-    if password[low] == letter and password[high] != letter:
-        part_two =+ 1
-    elif password[low] != letter and password[high] == letter:
-        part_two += 1
-    else:
-        pass
+  #check
+  if (password[low] == letter) != (password[high] == letter):
+    part_two += 1
+  else:
+      pass
 
 print ("Part 1: ",part_one)
 print ("Part 2: ", part_two)
