@@ -7,9 +7,17 @@ data = get_data("Day1Input.txt")
 
 print(data)
 
-def part1(goal, input):
-  for x in input:
-    if (target-x in input):
+def part1(goal, expense):
+  for x in expense:
+    if (target-x in expense):
       return (x, target - x)
 
-print(part1(2020,data)[0]*part1(2020,data)[0])
+print(part1(2020,data)[0]*part1(2020,data)[1])
+
+def part2(goal, expense):
+  for x in expense:
+    for y in expense:
+      if (goal-x-y in expense):
+        return (x, y, goal-x-y)
+
+print(part2(2020,data)[0]*part2(2020,data)[1]*part2(2020,data)[2])
