@@ -9,8 +9,8 @@ print(data)
 
 def part1(goal, expense):
   for x in expense:
-    if (target-x in expense):
-      return (x, target - x)
+    if (goal-x in expense):
+      return (x, goal - x)
 
 print(part1(2020,data)[0]*part1(2020,data)[1])
 
