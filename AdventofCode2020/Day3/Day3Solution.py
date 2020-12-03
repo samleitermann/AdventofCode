@@ -23,7 +23,8 @@ def collision_count(in_terrain, map_length, direction):
     # need to count lines to skip lines when our slope becomes non-integer
     line_count = 0
 
-    # loop through terrain and then (1) check if we're on an appropriate line for the slope, (2) check if we've hit a tree, and (3) check our position and loop back in the line if necessary.
+    # loop through terrain and then (1) check if we're on an appropriate line for the slope,
+    # (2) check if we've hit a tree, and (3) check our position and loop back in the line if necessary.
     for terr in in_terrain:
         # check that we've moved down far enough.
         if line_count % down == 0:
