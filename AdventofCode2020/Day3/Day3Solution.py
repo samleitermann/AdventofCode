@@ -60,4 +60,4 @@ def part_two(in_terrain, directions):
 
 
 print("Part One:", collision_count(terrain, len(terrain[0]), directions[1]))
-print("Part 2:", part_two(terrain, directions))
+print("Part Two:", part_two(terrain, directions))
