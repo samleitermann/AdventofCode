@@ -11,16 +11,16 @@ directions = [[1, 1, 0, 1, 0],[3, 1, 0, 1, 0],[5, 1, 0, 1, 0],[7, 1, 0, 1, 0],[1
 #part one
 
 def part_one(in_terrain, map_length, direction):
-  #set the parameters
-  right = direction[0]
-  down = direction[1]
-  position = direction[2]
+    #set the parameters
+    right = direction[0]
+    down = direction[1]
+    position = direction[2]
 
-  #need to count lines to skip lines when our slope becomes non-integer
-  line_count = 0
+    #need to count lines to skip lines when our slope becomes non-integer
+    line_count = 0
 
-  #loop through terrain and then (1) check if we're on an appropriate line for the slope, (2) check if we've hit a tree, and (3) check our position and loop back in the line if necessary.
-  for terr in in_terrain:
+    #loop through terrain and then (1) check if we're on an appropriate line for the slope, (2) check if we've hit a tree, and (3) check our position and loop back in the line if necessary
+    for terr in in_terrain:
     #check that we've moved down far enough.
     if line_count % down == 0:
       #check if we've hit a tree
