@@ -15,7 +15,7 @@ def collision_count(in_terrain, map_length, direction):
   right = direction[0]
   down = direction[1]
   position = direction[2]
-  tree_crash = 0
+  tree_crash = direction[4]
 
   #need to count lines to skip lines when our slope becomes non-integer
   line_count = 0
