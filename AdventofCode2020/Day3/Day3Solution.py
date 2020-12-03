@@ -1,16 +1,16 @@
 def get_data(file):
-    with open(file, 'r') as f:
-        data = [line.strip() for line in f]
-    return data
+  with open(file, 'r') as f:
+      data = [line.strip() for line in f]
+  return data
 
 terrain = get_data("Day3Input.txt")
 
 #set parameters for [right, down, position, step, trees_hit]
 directions = [[1, 1, 0, 1, 0],[3, 1, 0, 1, 0],[5, 1, 0, 1, 0],[7, 1, 0, 1, 0],[1, 2, 0, 1, 0]]
 
-#part one
+#Function to count collisions
 
-def part_one(in_terrain, map_length, direction):
+def collision_count(in_terrain, map_length, direction):
   #set the parameters
   right = direction[0]
   down = direction[1]
@@ -38,6 +38,7 @@ def part_one(in_terrain, map_length, direction):
 
   return(tree_crash)
 
+#function to run over multiple paths and multiply.
 
 def part_two(in_terrain,directions):
   #count the number of times to run part_one and add a product variable to calculate the product
@@ -48,7 +49,7 @@ def part_two(in_terrain,directions):
 
   #loop through part one with different parameters
   for direction in directions:
-    product *= part_one(in_terrain,len(in_terrain[0]),directions[count])
+    product *= collision_count(in_terrain,len(in_terrain[0]),directions[count])
     count +=1
 
   #for i in range(count):
@@ -56,5 +57,5 @@ def part_two(in_terrain,directions):
 
   return(product)
 
-print("Part One:", part_one(terrain, len(terrain[0]),directions[1]))
+print("Part One:", collision_count(terrain, len(terrain[0]),directions[1]))
 print("Part 2:", part_two(terrain,directions))
