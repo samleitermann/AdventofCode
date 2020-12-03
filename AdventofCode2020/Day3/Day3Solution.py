@@ -15,9 +15,12 @@ def part_one(in_terrain, map_length, direction):
   right = direction[0]
   down = direction[1]
   position = direction[2]
+  tree_crash = 0
 
   #need to count lines to skip lines when our slope becomes non-integer
   line_count = 0
+
+
 
   #loop through terrain and then (1) check if we're on an appropriate line for the slope, (2) check if we've hit a tree, and (3) check our position and loop back in the line if necessary.
   for terr in in_terrain:
@@ -26,14 +29,14 @@ def part_one(in_terrain, map_length, direction):
       #check if we've hit a tree
       if terr[position % map_length] == '#':
 
-        direction[4] += 1
+        tree_crash += 1
 
       position += right
 
     line_count += 1
 
 
-  return(direction[4])
+  return(tree_crash)
 
 
 def part_two(in_terrain,directions):
@@ -41,19 +44,17 @@ def part_two(in_terrain,directions):
   count = 0
   product = 1
 
-  temp_directions = directions
+
 
   #loop through part one with different parameters
-  for direction in temp_directions:
-    part_one(in_terrain,len(in_terrain[0]),temp_directions[count])
+  for direction in directions:
+    product *= part_one(in_terrain,len(in_terrain[0]),directions[count])
     count +=1
 
-  for i in range(count):
-    product = product*temp_directions[i][4]
+  #for i in range(count):
+    #product = product*temp_directions[i][4]
 
-  return(temp_directions[1][4],product)
+  return(product)
 
-print("Answers:", part_two(terrain,directions))
-
-
-#Should really just make it so the function makes a copy of the data and thus doesn't modify the original directions file. That would be better. Not going to right now.
+print("Part One:", part_one(terrain, len(terrain[0]),directions[1]))
+print("Part 2:", part_two(terrain,directions))
