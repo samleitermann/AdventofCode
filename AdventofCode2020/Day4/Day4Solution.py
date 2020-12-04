@@ -1,3 +1,4 @@
+# ---Opening Data---
 # Open data and strip out newlines
 
 def get_data(file):
@@ -7,6 +8,7 @@ def get_data(file):
     return inputs
 
 
+# ---Fetching Data and Defining Variables---
 # fetch data and initialize passport array, define fields and
 passport_input = get_data("Day4Input.txt")
 
@@ -18,7 +20,7 @@ fields.remove('cid')
 part_one = 0
 
 
-# turn the passports into a dictionary
+# ---Taking List to Dict---
 
 for index, i in enumerate(passport_input):
     rawdata = i.replace('\n', ' ').split()
@@ -26,7 +28,7 @@ for index, i in enumerate(passport_input):
     passport_dict = {x[0]: x[1] for x in details}
     passports.append(passport_dict)
 
-# count valid passports
+# ---Counting Valid Passports for Part One---
 
 for index, passport in enumerate(passports):
     keys = passport.keys()
