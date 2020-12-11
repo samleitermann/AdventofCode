@@ -3,7 +3,6 @@ def get_data(file):
         data = list(map(int, f.read().split("\n")))
     return data
 
-
 data = get_data("Day9Input.txt")
 
 
