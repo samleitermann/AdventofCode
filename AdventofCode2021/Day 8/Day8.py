@@ -34,7 +34,7 @@ def part_two(data):
     n = ''
     #loop over the digits in the output
     for o in map(set, dat[1].split()):
-      #mask with the known digits to determine pattern. When case is matched, add digit to the string
+      #mask with the known digits to determine pattern. When case is matched, add digit to the string. Matching length, digits in common with known options.
       match len(o), len(o&l[4]), len(o&l[2]):
         case 2,_,_: n += '1'
         case 3,_,_: n += '7'
