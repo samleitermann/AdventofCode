@@ -3,7 +3,7 @@ def get_heights(file):
   heights = [[int(c) for c in line.strip()] for line in open(file, "r").readlines()]
   return heights
 
-data = get_heights("Day9Data.txt")
+data = get_heights("C:/Users/samle/OneDrive/Documents/GitHub/AdventofCode/AdventofCode2021/Day 9/Day9Data.txt")
 
 rowlength = len(data[0]) #M
 columnlength = len(data) #N
