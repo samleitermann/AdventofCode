@@ -57,8 +57,7 @@ def parttwo(file):
     for tree_index, tree_height in enumerate(row):
       if tree_index == 0 or tree_index == horizontal_length-1:
         continue
-      print('row ',row)
-      print('modified row ', row[:tree_index][::-1])
+
       tree_height = int(tree_height)
       left_vision = get_vision(tree_height, row[:tree_index][::-1])
       right_vision = get_vision(tree_height, row[tree_index+1:])
