@@ -5,7 +5,7 @@ def get_data(file):
   with open(file, 'r') as f:
      for line in f:
        data.append(line.rstrip())
-  return data
+  return dsata
 
 
 
