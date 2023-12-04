@@ -76,7 +76,7 @@ def partone(file):
 
 	return(total)
 
-print(partone("Day3Test.txt"))
+print(partone("Day3Data.txt"))
 
 
 
