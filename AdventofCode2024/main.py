@@ -25,7 +25,6 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from dotenv import load_dotenv
 
-
 class Client:
     def __init__(self, session_id):
         self.session = requests.Session()
@@ -89,23 +88,23 @@ class Client:
         os.makedirs(self.dir_name, exist_ok=True)
         file_path = os.path.join(self.dir_name, "solutions.ipynb")
         self.notebook = {
-            "cells": [{"cell_type": "code", "metadata": {}, "source": [
-                "def parse_input(file_path):\n",
-                "    with open(file_path, 'r') as file:\n",
-                "        for line in file:\n",
-                "            pass\n",
-                "    return"
-            ]}],
-            "metadata": {
-                "kernelspec": {
-                    "display_name": "Python 3",
-                    "language": "python",
-                    "name": "python3"
-                }
-            },
-            "nbformat": 4,
-            "nbformat_minor": 4
-        }
+				"cells": [{ "cell_type": "code", "metadata": {}, "source":[
+        			"def parse_input(file_path):\n",
+					"    with open(file_path, 'r') as file:\n",
+					"        for line in file:\n",
+					"            pass\n",
+					"    return"
+          		] }],
+				"metadata": {
+					"kernelspec": {
+						"display_name": "Python 3",
+						"language": "python",
+						"name": "python3"
+					}
+				},
+				"nbformat": 4,
+				"nbformat_minor": 4
+			}
 
         with open(file_path, 'w', encoding='utf-8') as f:
             json.dump(self.notebook, f)
@@ -113,17 +112,17 @@ class Client:
         print(f"Created template for {self.year} day {self.day}")
 
     def update_template(self, input, content):
-        markdown_cell = {"cell_type": "markdown", "metadata": {}, "source": content}
-        code_cell = {"cell_type": "code", "metadata": {}, "source": [
-            "def solution():\n",
+        markdown_cell = { "cell_type": "markdown", "metadata": {}, "source": content }
+        code_cell = { "cell_type": "code", "metadata": {}, "source": [
+			"def solution():\n",
             "    pass\n",
             "\n",
             f"input = parse_input('{input}.txt')\n",
             "solution()"
-        ]}
-        submission_cell = {"cell_type": "code", "metadata": {}, "source": [
-            "# Submission\n",
-        ]}
+		] }
+        submission_cell = { "cell_type": "code", "metadata": {}, "source": [
+			"# Submission\n",
+		] }
 
         self.notebook["cells"].append(markdown_cell)
         self.notebook["cells"].append(code_cell)
@@ -136,6 +135,7 @@ class Client:
         with open(self.dir_name + "/solutions.ipynb", 'r') as f:
             time.sleep(1)
             self.notebook = json.load(f)
+
 
     def get_problem_part_1(self):
         url = f'https://adventofcode.com/{self.year}/day/{self.day}'
@@ -189,9 +189,9 @@ class Client:
 
     def submit_solution(self, level):
         payload = {
-            "level": level,
-            "answer": self.solution
-        }
+			"level": level,
+			"answer": self.solution
+		}
 
         url = f'https://adventofcode.com/{self.year}/day/{self.day}/answer'
         response = self.session.post(url, data=payload)
@@ -234,13 +234,11 @@ class Client:
 
         return False
 
-
 def main():
     load_dotenv('.env')
 
     client = Client(os.getenv('SESSION_ID'))
     client.run()
-
 
 if __name__ == '__main__':
     main()
