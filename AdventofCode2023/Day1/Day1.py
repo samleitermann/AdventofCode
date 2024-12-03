@@ -9,7 +9,7 @@ def get_data(file):
 
 
 
-rawdata=get_data("Day1.txt")
+rawdata=get_data("day_1.txt")
 test_data = get_data("TestData1.txt")
 
 def partone(data):
