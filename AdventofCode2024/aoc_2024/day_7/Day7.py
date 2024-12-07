@@ -3,7 +3,7 @@ import re, time
 #get raw data with minimal processing
 def get_data(file):
 
-    #open the file and strip out trailing whitespace, create a list with the test value as the first value and the values to be
+    #open the file create a list with the test value as the first value and the values to be
     #combined as the rest of the values. Use regular expressions to split in a more complex way.
     with open(file, 'r') as f:
         data = [list(map(int, re.split(r': | ', line.strip()))) for line in f.readlines()]
