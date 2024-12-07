@@ -1,4 +1,5 @@
 import os
+import time
 
 from itertools import cycle
 
@@ -103,10 +104,12 @@ def find_obstacles(guard, lab):
 
 
 guard, lab = parse_data(get_data('Day6Input.txt'))
-
+start = time.perf_counter()
 print('Part One: ', len(guard_simulation(guard,lab)[0]))
 print('Part Two: ', len(find_obstacles(guard, lab)))
+end = time.perf_counter()
 
+print('Time Taken = ', end-start)
 
 
 
