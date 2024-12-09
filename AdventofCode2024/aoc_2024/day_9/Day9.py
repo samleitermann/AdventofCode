@@ -1,3 +1,5 @@
+import time
+
 #get raw data with minimal processing
 def get_data_one(file):
 
@@ -95,6 +97,7 @@ def part_two(disk_map):
     return result
 
 
+start = time.perf_counter()
 
 diskmap1 = get_data_one('Day9Input.txt')
 result1 = part_one(diskmap1)
@@ -105,3 +108,6 @@ result2 = part_two(diskmap2)
 print('Part One: ', result1)
 print('Part Two: ', result2)
 
+end = time.perf_counter()
+
+print("Time taken to execute: ", end-start, ' seconds')
