@@ -5,6 +5,7 @@
 input.txt
 **/**/**/input.txt
 real_input.txt
+input*
 
 # Byte-compiled / optimized / DLL files
 config.yml
