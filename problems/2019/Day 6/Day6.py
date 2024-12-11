@@ -1,5 +1,5 @@
 def get_orbit_map():
-    f=open("/Users/sleitermann-long/Documents/AdventofCode/AdventofCode2019/Day 6/Day6Input.txt") #not with read because thats probably the whole file
+    f=open("/Users/sleitermann-long/Documents/AdventofCode/AdventofCode2019/Day 6/input.txt") #not with read because thats probably the whole file
     lines = [line.rstrip('\n').split(')') for line in f]
     return {l[1]:l[0] for l in lines}
 

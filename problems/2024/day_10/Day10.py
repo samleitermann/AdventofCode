@@ -4,7 +4,7 @@ def get_data(file):
         topo_map = [[int(i) for i in x.strip()] for x in f]
     return topo_map
 
-topo_map = get_data("Day10Input.txt")
+topo_map = get_data("input.txt")
 bounds = len(topo_map)
 
 def follow_trail(x, y, curr, visited, part_1):

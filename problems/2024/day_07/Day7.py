@@ -45,8 +45,8 @@ def op_deter(test_val, current_val, remaining_vals):
             op_deter(test_val, int(f'{current_val}{nxt}'), remaining_vals))
 
 start = time.perf_counter()
-#print("Part One: ", sum(parse_data(d) for d in get_data('Day7Input.txt')))
-print("Part Two: ", sum(parse_data(d) for d in get_data('Day7Input.txt')))
+#print("Part One: ", sum(parse_data(d) for d in get_data('input.txt')))
+print("Part Two: ", sum(parse_data(d) for d in get_data('input.txt')))
 end = time.perf_counter()
 
 print("Time taken to execute: ", end-start, ' seconds')

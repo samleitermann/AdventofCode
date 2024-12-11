@@ -5,7 +5,7 @@ def get_data(file):
         data = list(map(int, f.read().split(",")))
     return data
 
-data = get_data("/Users/sleitermann-long/Documents/AdventofCode/AdventofCode2019/Day 7/Day7Input.txt")
+data = get_data("/Users/sleitermann-long/Documents/AdventofCode/AdventofCode2019/Day 7/input.txt")
 
 pointerjump = {1: 4, 2: 4, 3: 2, 4: 2, 5: 3, 6: 3, 7: 4, 8: 4, 99: 0}
 

@@ -81,7 +81,7 @@ def generate_antinodes_part_2(antennas, raw):
 
 start = time.perf_counter()
 #get data
-raw = get_data('Day8Input.txt')
+raw = get_data('input.txt')
 #create list of antennas
 antennas = parse_data(raw)
 #create array of nodes, flatten it, and then check length. (Part One)

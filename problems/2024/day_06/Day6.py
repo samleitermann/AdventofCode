@@ -102,7 +102,7 @@ def find_obstacles(guard, lab):
     return obstacles
 
 
-guard, lab = parse_data(get_data('Day6Input.txt'))
+guard, lab = parse_data(get_data('input.txt'))
 start = time.perf_counter()
 print('Part One: ', len(guard_simulation(guard,lab)[0]))
 print('Part Two: ', len(find_obstacles(guard, lab)))

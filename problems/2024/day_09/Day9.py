@@ -99,10 +99,10 @@ def part_two(disk_map):
 
 start = time.perf_counter()
 
-diskmap1 = get_data_one('Day9Input.txt')
+diskmap1 = get_data_one('input.txt')
 result1 = part_one(diskmap1)
 
-diskmap2 = get_data_two('Day9Input.txt')
+diskmap2 = get_data_two('input.txt')
 result2 = part_two(diskmap2)
 
 print('Part One: ', result1)

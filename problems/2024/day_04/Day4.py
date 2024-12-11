@@ -43,7 +43,7 @@ def part_one(data):
     return result
 
 
-print(part_one(get_data('input1.txt')))
+print(part_one(get_data('input.txt')))
 
 def part_two(data):
 
@@ -59,7 +59,7 @@ def part_two(data):
 
     return result
 
-print(part_two(get_data('input1.txt')))
+print(part_two(get_data('input.txt')))
 
 
 

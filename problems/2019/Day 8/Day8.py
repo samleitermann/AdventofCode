@@ -3,7 +3,7 @@ def get_data(file):
         data = list(map(int, f.read()))
     return data
 
-data = get_data("/Users/sleitermann-long/Documents/AdventofCode/AdventofCode2019/Day 8/Day8Input.txt")
+data = get_data("/Users/sleitermann-long/Documents/AdventofCode/AdventofCode2019/Day 8/input.txt")
 
 def split_layersandcount(data, H, W, layers =[], count = [],ans_1 = 0):
   i = 0

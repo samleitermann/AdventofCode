@@ -122,7 +122,7 @@ class VM:
         return out
 
 
-with open(os.path.dirname(__file__) + "/Users/sleitermann-long/Documents/AdventofCode/AdventofCode2019/Day 9/Day9Input.txt") as f:
+with open(os.path.dirname(__file__) + "/Users/sleitermann-long/Documents/AdventofCode/AdventofCode2019/Day 9/input.txt") as f:
     code = list(map(int, f.readline().strip().split(",")))
     vm = VM(code)
 
