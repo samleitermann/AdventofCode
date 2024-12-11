@@ -3,6 +3,7 @@
 
 # real_input.txt (must not be shared)
 input.txt
+**/**/**/input.txt
 real_input.txt
 
 # Byte-compiled / optimized / DLL files
