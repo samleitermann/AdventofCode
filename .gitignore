@@ -4,6 +4,7 @@
 # real_input.txt (must not be shared)
 input.txt
 **/**/**/input.txt
+**/**/**/*Input.txt
 real_input.txt
 input*
 
