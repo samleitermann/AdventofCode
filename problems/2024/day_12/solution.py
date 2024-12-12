@@ -65,7 +65,46 @@ class Solution:
         islands.append(isle)
     return islands
 
+  def different(self, this, other):
+    if other not in self.grid or this not in self.grid:
+      return True
+    elif self.grid[this] != self.grid[other]:
+      return True
+    return False
 
+  def count_sides(self, isle):
+
+    total = 0
+    sorted_points = sorted(isle)
+
+    for dir in [(0, -1), (0, 1), (-1, 0), (1, 0)]:
+      borders = set()
+      need_check = set(sorted_points)
+
+      for current in sorted_points:
+        i,j = current
+        neighbor = (i+dir[0], j+dir[1])
+
+        if current not in need_check:
+          continue
+        if self.different(current, neighbor):
+          while True:
+            di = 1 if not dir[0] else 0
+            dj = 1 if not dir[1] else 0
+            next_neighbor = (i + dir[0]+di, j + dir[1]+dj)
+            next_diag = (i + di, j+dj)
+            if (self.different(next_neighbor, current) and self.different(next_diag, current)) \
+              or (not self.different(next_neighbor, current) and not self.different(next_diag, current)):
+              borders.add(current)
+              break
+            else:
+              if next_diag in need_check:
+                need_check.remove(next_diag)
+            i += di
+            j += dj
+
+      total += len(borders)
+    return total
 
   def part1(self):
     price = 0
@@ -79,7 +118,15 @@ class Solution:
     return price
 
   def part2(self):
-    pass
+    price = 0
+    islands = self.getallislands()
+
+    for isle in islands:
+      area = len(isle)
+      sides = self.count_sides(isle)
+      price += area * sides
+
+    return price
   
 if __name__ == '__main__':
   parser = argparse.ArgumentParser('Solution file')
