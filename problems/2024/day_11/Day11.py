@@ -1,4 +1,5 @@
 from collections import defaultdict
+import time
 def get_data(file):
     # create a list of files and empty space allocations
     with open(file) as f:
@@ -32,13 +33,15 @@ def solution(stones, blinks):
 
     return sum(part1.values())
 
-
+start = time.perf_counter()
 stones = get_data('real_input.txt')
 result1 = solution(stones,25)
 result2 = solution(stones,75)
 
 print(f'Part 1: {result1} and Part 2: {result2}')
+end = time.perf_counter()
 
+print(f'The time took to execute was {end - start} seconds')
 
 
 
