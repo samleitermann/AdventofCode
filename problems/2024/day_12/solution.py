@@ -72,16 +72,10 @@ class Solution:
       return True
     return False
 
-  def count_sides(island, grid):
-    def different(this, other, grid):
-        if other not in grid or this not in grid:
-            return True
-        elif grid[this] != grid[other]:
-            return True
-        return False
+  def count_sides(self, isle):
 
     total = 0
-    sorted_points = sorted(island)
+    sorted_points = sorted(isle)
 
     for d in [(0, -1), (0, 1), (-1, 0), (1, 0)]:
         borders = set()
@@ -91,16 +85,16 @@ class Solution:
             adj = (i + d[0], j + d[1])
             if current not in to_check:
                 continue
-            if different(current, adj, grid):
+            if self.different(current, adj):
                 while True:
                     di = 1 if not d[0] else 0
                     dj = 1 if not d[1] else 0
                     nxt_adj = (i+d[0]+di, j+d[1]+dj)
                     nxt_diag = (i+di, j + dj)
-                    if (different(nxt_adj, current, grid) and \
-                        different(nxt_diag, current, grid)) or \
-                        (not different(nxt_adj, current, grid) and \
-                        not different(nxt_diag, current, grid)):
+                    if (self.different(nxt_adj, current) and \
+                        self.different(nxt_diag, current)) or \
+                        (not self.different(nxt_adj, current) and \
+                        not self.different(nxt_diag, current)):
                         borders.add(current)
                         break
                     else:
