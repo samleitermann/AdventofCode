@@ -72,39 +72,46 @@ class Solution:
       return True
     return False
 
-  def count_sides(self, isle):
+  def count_sides(island, grid):
+    def different(this, other, grid):
+        if other not in grid or this not in grid:
+            return True
+        elif grid[this] != grid[other]:
+            return True
+        return False
 
     total = 0
-    sorted_points = sorted(isle)
+    sorted_points = sorted(island)
 
-    for dir in [(0, -1), (0, 1), (-1, 0), (1, 0)]:
-      borders = set()
-      need_check = set(sorted_points)
-
-      for current in sorted_points:
-        i,j = current
-        neighbor = (i+dir[0], j+dir[1])
-
-        if current not in need_check:
-          continue
-        if self.different(current, neighbor):
-          while True:
-            di = 1 if not dir[0] else 0
-            dj = 1 if not dir[1] else 0
-            next_neighbor = (i + dir[0]+di, j + dir[1]+dj)
-            next_diag = (i + di, j+dj)
-            if (self.different(next_neighbor, current) and self.different(next_diag, current)) \
-              or (not self.different(next_neighbor, current) and not self.different(next_diag, current)):
-              borders.add(current)
-              break
-            else:
-              if next_diag in need_check:
-                need_check.remove(next_diag)
-            i += di
-            j += dj
-
-      total += len(borders)
+    for d in [(0, -1), (0, 1), (-1, 0), (1, 0)]:
+        borders = set()
+        to_check = set(sorted_points)
+        for current in sorted_points:
+            i, j = current
+            adj = (i + d[0], j + d[1])
+            if current not in to_check:
+                continue
+            if different(current, adj, grid):
+                while True:
+                    di = 1 if not d[0] else 0
+                    dj = 1 if not d[1] else 0
+                    nxt_adj = (i+d[0]+di, j+d[1]+dj)
+                    nxt_diag = (i+di, j + dj)
+                    if (different(nxt_adj, current, grid) and \
+                        different(nxt_diag, current, grid)) or \
+                        (not different(nxt_adj, current, grid) and \
+                        not different(nxt_diag, current, grid)):
+                        borders.add(current)
+                        break
+                    else:
+                        if nxt_diag in to_check:
+                            to_check.remove(nxt_diag)
+                    i += di
+                    j += dj
+        total += len(borders)
     return total
+
+
 
   def part1(self):
     price = 0
