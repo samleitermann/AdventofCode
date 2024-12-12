@@ -18,13 +18,25 @@ class Solution:
         grid[(i,j)] = val
     return grid
 
-  def island(grid, start):
+  def island(self,grid, start):
     visited = set()
     Q = deque([start])
 
     while Q:
+      current = Q.popleft()
+      if current in visited:
+        continue
+      else:
+        visited.add(current)
 
+      i, j = current
+      neighbors = [(i,j+1),(i,j-1),(i+1,j),(i-1,j)]
 
+      for neigh in neighbors:
+        if neigh in grid and grid[neigh]==grid[current]:
+          Q.append(neigh)
+
+    return visited
 
 
 
