@@ -131,7 +131,7 @@ class Solution:
 
   def part2(self):
     price = 0
-    #islands = self.getallislands()
+    
 
     for isle in self.islands:
       area = len(isle)
