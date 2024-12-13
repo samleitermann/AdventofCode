@@ -72,38 +72,49 @@ class Solution:
       return True
     return False
 
-  def count_sides(self, isle):
+  def check_corner(selfself,isle):
+      corners = 0
+      for patch in isle:
+          i, j = patch
 
-    total = 0
-    sorted_points = sorted(isle)
+          ul = (i-1, j-1)
+          u = (i-1,j)
+          ur = (i-1, j+1)
+          r = (i, j+1)
+          dr = (i+1, j+1)
+          dl = (i+1, j-1)
+          l = (i, j-1)
+          d = (i+1, j)
 
-    for d in [(0, -1), (0, 1), (-1, 0), (1, 0)]:
-        borders = set()
-        to_check = set(sorted_points)
-        for current in sorted_points:
-            i, j = current
-            adj = (i + d[0], j + d[1])
-            if current not in to_check:
-                continue
-            if self.different(current, adj):
-                while True:
-                    di = 1 if not d[0] else 0
-                    dj = 1 if not d[1] else 0
-                    nxt_adj = (i+d[0]+di, j+d[1]+dj)
-                    nxt_diag = (i+di, j + dj)
-                    if (self.different(nxt_adj, current) and \
-                        self.different(nxt_diag, current)) or \
-                        (not self.different(nxt_adj, current) and \
-                        not self.different(nxt_diag, current)):
-                        borders.add(current)
-                        break
-                    else:
-                        if nxt_diag in to_check:
-                            to_check.remove(nxt_diag)
-                    i += di
-                    j += dj
-        total += len(borders)
-    return total
+          if all([adj not in isle for adj in [u, ur, r]]):
+              corners += 1
+          if all([adj not in isle for adj in [u, ul, l]]):
+              corners += 1
+          if all([adj not in isle for adj in [d, dl, l]]):
+              corners += 1
+          if all([adj not in isle for adj in [d, dr, r]]):
+              corners += 1
+          if u in isle and r in isle and ur not in isle:
+              corners += 1
+          if u in isle and l in isle and ul not in isle:
+              corners += 1
+          if d in isle and l in isle and dl not in isle:
+              corners += 1
+          if d in isle and r in isle and dr not in isle:
+              corners += 1
+          if u not in isle and l not in isle and ul in isle:
+              corners += 1
+          if u not in isle and r not in isle and ur in isle:
+              corners += 1
+          if d not in isle and l not in isle  and dl in isle:
+              corners += 1
+          if d not in isle and r not in isle and dr in isle:
+              corners += 1
+
+      return corners
+
+
+
 
 
 
@@ -124,7 +135,7 @@ class Solution:
 
     for isle in islands:
       area = len(isle)
-      sides = self.count_sides(isle)
+      sides = self.check_corner(isle)
       price += area * sides
 
     return price
