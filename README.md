@@ -22,6 +22,7 @@ I'm a math teacher and coder and this is my Advent of Code Repo!
 | [Day 10](https://adventofcode.com/2024/day/10) | ⭐ | ⭐ |
 | [Day 11](https://adventofcode.com/2024/day/11) | ⭐ | ⭐ |
 | [Day 12](https://adventofcode.com/2024/day/12) | ⭐ | ⭐ |
+| [Day 13](https://adventofcode.com/2024/day/13) | ⭐ | ⭐ |
 <!--- advent_readme_stars table --->
 
 Automation based on [AoC Automation](https://github.com/henriupton99/AdventOfCode/tree/main) by [Henri Upton](https://github.com/henriupton99)
