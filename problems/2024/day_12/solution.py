@@ -131,9 +131,9 @@ class Solution:
 
   def part2(self):
     price = 0
-    islands = self.getallislands()
+    #islands = self.getallislands()
 
-    for isle in islands:
+    for isle in self.islands:
       area = len(isle)
       sides = self.check_corner(isle)
       price += area * sides
