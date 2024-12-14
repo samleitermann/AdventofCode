@@ -1,6 +1,8 @@
 import argparse, re
 from collections import namedtuple, defaultdict
 from math import prod
+import numpy as np
+import cv2
 
 class Solution:
   filename_real_input = 'real_input.txt'
@@ -48,19 +50,16 @@ class Solution:
 
   def print_tree(self, seconds):
     state = self.simulate_robots(seconds)
+    grid = np.zeros((103,101))
     i = 0
     while i <= 101:
-      row_str = str()
       j = 0
       while j < 101:
         if (i,j) in state:
-          row_str += '*'
-        else:
-          row_str += '.'
+          grid[i][j] = 255
         j +=1
-      with open("tree.txt", "a") as file:
-        file.write(row_str+"\n")
       i += 1
+    cv2.imwrite(f"{seconds:04}.png", grid)
 
 
   def part1(self):
@@ -93,9 +92,10 @@ class Solution:
 
       var_x = self.find_variance(cur_x)
       var_y = self.find_variance(cur_y)
-
+      #If you uncomment this line, it produces close to 8000 pngs (I used this to create an animation.)
+      #self.print_tree(secs)
       if var_x < 1 and var_y < 1:
-        print(self.print_tree(secs))
+        self.print_tree(secs)
         return secs
 
       secs += 1
