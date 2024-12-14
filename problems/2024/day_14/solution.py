@@ -1,8 +1,6 @@
 import argparse, re
 from collections import namedtuple, defaultdict
 from math import prod
-import numpy as np
-from PIL import Image
 
 class Solution:
   filename_real_input = 'real_input.txt'
@@ -48,6 +46,23 @@ class Solution:
     mean = self.find_mean(vals)
     return self.find_mean([(val - mean)**2 for val in vals])/len(vals)
 
+  def print_tree(self, seconds):
+    state = self.simulate_robots(seconds)
+    i = 0
+    while i <= 101:
+      row_str = str()
+      j = 0
+      while j < 101:
+        if (i,j) in state:
+          row_str += '*'
+        else:
+          row_str += '.'
+        j +=1
+      with open("tree.txt", "a") as file:
+        file.write(row_str+"\n")
+      i += 1
+
+
   def part1(self):
     height = 103
     width = 101
@@ -66,6 +81,8 @@ class Solution:
 
     return prod(quad_count.values())
 
+
+
   def part2(self):
     found = False
     secs = 0
@@ -78,6 +95,7 @@ class Solution:
       var_y = self.find_variance(cur_y)
 
       if var_x < 1 and var_y < 1:
+        print(self.print_tree(secs))
         return secs
 
       secs += 1
