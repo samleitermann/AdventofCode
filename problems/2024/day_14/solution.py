@@ -59,7 +59,8 @@ class Solution:
           grid[i][j] = 255
         j +=1
       i += 1
-    cv2.imwrite(f"{seconds:04}.png", grid)
+    cv2.imwrite(f"{seconds:04}.png", grid,[cv2.IMWRITE_JPEG_QUALITY, 90])s
+
 
 
   def part1(self):
@@ -95,7 +96,7 @@ class Solution:
       #If you uncomment this line, it produces close to 8000 pngs (I used this to create an animation.)
       #self.print_tree(secs)
       if var_x < 1 and var_y < 1:
-        self.print_tree(secs)
+        #self.print_tree(secs)
         return secs
 
       secs += 1
