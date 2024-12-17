@@ -59,7 +59,7 @@ class Solution:
           grid[i][j] = 255
         j +=1
       i += 1
-    cv2.imwrite(f"{seconds:04}.png", grid,[cv2.IMWRITE_JPEG_QUALITY, 90])s
+    cv2.imwrite(f"{seconds:04}.png", grid,[cv2.IMWRITE_JPEG_QUALITY, 90])
 
 
 
