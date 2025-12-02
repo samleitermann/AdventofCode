@@ -91,5 +91,3 @@ def part_two(data=data):
 
     return count
 
-print(part_two())
-
