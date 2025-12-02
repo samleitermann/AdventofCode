@@ -74,7 +74,7 @@ def part_one(data=data):
 def part_two(data=data):
     count = 0
     loc = 50
-
+    #Code just counts how many rotations there are and adds those on.
     for instr in data:
 
         if instr[0] == "R":
