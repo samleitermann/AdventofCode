@@ -1,9 +1,9 @@
 Hello there 👋
 I'm a math teacher and coder and this is my Advent of Code Repo!
 
-![](https://img.shields.io/badge/day%20📅-14-blue) 
-![](https://img.shields.io/badge/stars%20⭐-28-yellow) 
-![](https://img.shields.io/badge/days%20completed-14-red)
+![](https://img.shields.io/badge/day%20📅-17-blue) 
+![](https://img.shields.io/badge/stars%20⭐-34-yellow) 
+![](https://img.shields.io/badge/days%20completed-17-red)
 
 <!--- advent_readme_stars table --->
 ## 2024 Results
@@ -25,6 +25,8 @@ I'm a math teacher and coder and this is my Advent of Code Repo!
 | [Day 13](https://adventofcode.com/2024/day/13) | ⭐ | ⭐ |
 | [Day 14](https://adventofcode.com/2024/day/14) | ⭐ | ⭐ |
 | [Day 15](https://adventofcode.com/2024/day/15) | ⭐ | ⭐ |
+| [Day 16](https://adventofcode.com/2024/day/16) | ⭐ | ⭐ |
+| [Day 17](https://adventofcode.com/2024/day/17) | ⭐ | ⭐ |
 <!--- advent_readme_stars table --->
 
 Automation based on [AoC Automation](https://github.com/henriupton99/AdventOfCode/tree/main) by [Henri Upton](https://github.com/henriupton99)
