@@ -58,7 +58,6 @@ class Solution:
               end += 1
 
           total_2 += int("".join(digits_2) + bank[end - 1:])
-          print("".join(digits_2) + bank[end - 1:])
 
       return total_2
   
