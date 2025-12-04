@@ -13,12 +13,54 @@ class Solution:
     self.filename = self.filename_test_input if test else self.filename_real_input
     self.file = open(self.filename,'r').read()
     self.lines = self.file.splitlines()
-    
+
   def part1(self):
-    pass
+
+    total = 0
+
+    for bank in self.lines:
+
+        start = 0
+        end = len(bank) - 1
+        digits = []
+
+
+        while start +1 < end <= len(bank):
+            search_area = bank[start:end]
+            digit = max(search_area)
+            digits.append(digit)
+
+            start += search_area.index(digit) + 1
+            end += 1
+
+        total += int("".join(digits)+ bank[end - 1 :])
+
+
+    return total
+
   
   def part2(self):
-    pass
+
+      total_2 = 0
+
+      for bank in self.lines:
+
+          start = 0
+          end = len(bank) - 11
+          digits_2 = []
+
+          while start + 1 < end <= len(bank):
+              search_area = bank[start:end]
+              digit = max(search_area)
+              digits_2.append(digit)
+
+              start += search_area.index(digit) + 1
+              end += 1
+
+          total_2 += int("".join(digits_2) + bank[end - 1:])
+          print("".join(digits_2) + bank[end - 1:])
+
+      return total_2
   
 if __name__ == '__main__':
   parser = argparse.ArgumentParser('Solution file')
@@ -28,3 +70,4 @@ if __name__ == '__main__':
   test = True if args.test in ['True','true'] else False
   solution = Solution(test=test)
   result = solution.part1() if args.part == 1 else solution.part2()
+  print(result)

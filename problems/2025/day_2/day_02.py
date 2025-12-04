@@ -24,25 +24,25 @@ print(data)
 # force type inference to happen, AFAIK - but this won't work with standard
 # collections (list, set, dict, tuple)
 
-def is_repeating(number_str):
+def is_repeating(number_str, part):
 
     if len(number_str) == 2 and number_str[0] == number_str[1]:
         return True
     else:
         pattern = r"^(\d+)\1+$"
         pattern_2 = r"^(\d+)\1$"
-        return bool(re.match(pattern, number_str))
+        if part == 1:
+            return bool(re.match(pattern, number_str))
+        if part == 2:
+            return bool(re.match(pattern_2, number_str))
 
 
 def part_one(data=data):
     bad_ids = []
 
     for row in data:
-        print(row)
         for i in range(row[0], row[1] + 1):
-
-            if is_repeating(str(i)):
-                print(i)
+            if is_repeating(str(i), 1):
                 bad_ids.append(i)
 
 
@@ -62,11 +62,9 @@ def part_two(data=data):
     bad_ids = []
 
     for row in data:
-        print(row)
         for i in range(row[0], row[1] + 1):
 
-            if is_repeating(str(i)):
-                print(i)
+            if is_repeating(str(i), 2):
                 bad_ids.append(i)
 
     return sum(bad_ids)
