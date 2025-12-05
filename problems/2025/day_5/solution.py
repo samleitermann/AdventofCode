@@ -20,7 +20,8 @@ class Solution:
     ingredients = []
 
     ranges = []
-
+    #Add all the ingredient ID ranges to an array, then when you hit the space between ranges and IDs
+    #switch arrays and add all the ingredient IDs to an array.
     flag = False
     for line in self.lines:
         if line == '':
@@ -31,6 +32,7 @@ class Solution:
         if flag:
             ingredients.append(line)
 
+    #Turn ID ranges into tuples representing intervals.
     for ran in raw_ranges:
 
         start, end = ran.split('-')
@@ -39,7 +41,8 @@ class Solution:
     return ranges, ingredients
 
   def merge_intervals(self):
-
+    #Basic interval merge, sort the intervals by start value and then compare ending and starting,
+    #merging as appropriate.
       intervals = self.parse_file()[0]
 
       intervals.sort(key=lambda x:x[0])
@@ -61,11 +64,12 @@ class Solution:
 
 
   def part1(self):
+
     ingredient_ranges = self.merge_intervals()
     ingredients = self.parse_file()[1]
 
     fresh = []
-
+    #for each ingredient, check if it is in one of the intervals. Exit early if it is.
     for ingredient in ingredients:
         for ranges_start, ranges_end in ingredient_ranges:
             if ranges_start <= int(ingredient) <= ranges_end:
@@ -75,10 +79,11 @@ class Solution:
     return len(fresh)
   
   def part2(self):
+
       ingredient_ranges = self.merge_intervals()
 
       freshness = 0
-
+    #because we've combined intervals, we just need to find the length of each interval and add them up.
       for ranges_start, ranges_end in ingredient_ranges:
           freshness += ranges_end - ranges_start +1
 
