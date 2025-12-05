@@ -1,6 +1,8 @@
 import argparse
 import re
 
+import time
+
 class Solution:
   filename_real_input = 'real_input.txt'
   filename_test_input = 'test_input.txt'
@@ -64,7 +66,7 @@ class Solution:
 
 
   def part1(self):
-
+    start = time.perf_counter()
     ingredient_ranges = self.merge_intervals()
     ingredients = self.parse_file()[1]
 
@@ -75,11 +77,13 @@ class Solution:
             if ranges_start <= int(ingredient) <= ranges_end:
                 fresh.append(ingredient)
                 continue
+    end = time.perf_counter()
 
+    print(end-start)
     return len(fresh)
   
   def part2(self):
-
+      start = time.perf_counter()
       ingredient_ranges = self.merge_intervals()
 
       freshness = 0
@@ -87,7 +91,9 @@ class Solution:
       for ranges_start, ranges_end in ingredient_ranges:
           freshness += ranges_end - ranges_start +1
 
+      end = time.perf_counter()
 
+      print(end-start)
       return freshness
 
   
