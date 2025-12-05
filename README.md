@@ -1,9 +1,9 @@
 Hello there 👋
 I'm a math teacher and coder and this is my Advent of Code Repo!
 
-![](https://img.shields.io/badge/day%20📅-4-blue) 
-![](https://img.shields.io/badge/stars%20⭐-6-yellow) 
-![](https://img.shields.io/badge/days%20completed-3-red)
+![](https://img.shields.io/badge/day%20📅-5-blue) 
+![](https://img.shields.io/badge/stars%20⭐-10-yellow) 
+![](https://img.shields.io/badge/days%20completed-5-red)
 
 <!--- advent_readme_stars table --->
 ## 2025 Results
