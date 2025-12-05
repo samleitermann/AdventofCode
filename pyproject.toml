@@ -1,12 +1,19 @@
-[project]
-name = "adventofcode"
+[tool.poetry]
+name = "AdventofCode"
 version = "0.1.0"
 description = "virtual env for advent of code"
 readme = "README.md"
-requires-python = ">=3.12"
-dependencies = [
-    "bs4>=0.0.2",
-    "pyperclip>=1.11.0",
-    "requests>=2.32.5",
-    "rich>=14.2.0",
-]
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+bs4 = "^0.0.2"
+pyperclip = "^1.11.0"
+requests = "^2.32.5"
+rich = "^14.2.0"
+matplotlib = "==3.10.7"
+aoctools = "^0.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
